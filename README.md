@@ -2,7 +2,7 @@
 
 <h3 align="center">:hammer_and_wrench: Languages and Tools</h3>
 
-![GitHub Snake](https://raw.githubusercontent.com/mekanxsari/mekanxsari/refs/heads/output/github-snake-dark.svg)
+![GitHub Snake](https://raw.githubusercontent.com/mekanxsari/mekanxsari/output/github-snake.svg)
 
 <p align="center">
   <a href="https://skillicons.dev">
@@ -14,7 +14,7 @@
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: 20px;">
     <!-- Left Column: Metrics -->
     <div style="flex: 1; max-width: 45%;">
-        <img align="left" width="50%" alt="if you see this, it means my metrics are not working" src="https://github.com/mekanxsari/mekanxsari/blob/main/github-metrics.svg">
+        <img align="left" width="50%" alt="if you see this, it means my metrics are not working" src="https://raw.githubusercontent.com/mekanxsari/mekanxsari/main/github-metrics.svg">
     </div>
 
 
