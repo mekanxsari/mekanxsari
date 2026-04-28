@@ -21,7 +21,7 @@ permissions:
 
 jobs:
   # ============================================
-  # JOB 1: Generate Snake Animation
+  # JOB 1: Generate Snake Animation (Save to main branch)
   # ============================================
   generate-snake:
     runs-on: ubuntu-latest
@@ -38,20 +38,17 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
-            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+            github-snake-dark.svg
+            
+      - name: Commit and push snake to main branch
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add github-snake-dark.svg
+          git diff --staged --quiet || git commit -m "🐍 Update snake dark animation [skip ci]"
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
-
-      - name: Deploy snake to output branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.METRICS_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: output
-          commit_message: "🐍 Update snake animation [skip ci]"
-          force_orphan: true
 
   # ============================================
   # JOB 2: Generate GitHub Metrics
@@ -109,5 +106,5 @@ jobs:
           # Auto-commit configuration
           committer_token: ${{ secrets.METRICS_TOKEN }}
           committer_branch: main
-          committer_message: "📈 Update GitHub metrics [skip ci]"
+          committer_message: "Update GitHub metrics [skip ci]"
           filename: github-metrics.svg
