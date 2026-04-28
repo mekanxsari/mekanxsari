@@ -36,7 +36,7 @@
         <a href="https://t.me/mekanxsari">
           <img src="https://img.shields.io/badge/Telegram-26A5E4?style=flat-square&logo=telegram&logoColor=white&logoWidth=20" height="36">
         </a>
-        <a href="https://instagram.com/mekanxsari">
+        <a href="https://instagram.com/mekan.sari">
           <img src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white&logoWidth=20" height="36">
         </a>
       </p>
