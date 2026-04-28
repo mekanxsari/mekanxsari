@@ -78,7 +78,7 @@ jobs:
           base: header, activity, community, repositories, metadata
           base_indepth: true
           config_octicon: true
-          config_timezone: Asia/Bishkek
+          config_timezone: Europe/Moscow
           config_twemoji: true
           
           # Languages plugin
