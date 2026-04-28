@@ -1,12 +1,13 @@
 name: GitHub Metrics
+
 on:
-  # Manual trigger only
-  workflow_dispatch:
+  workflow_dispatch:  # Manuel tetikleme
+  schedule:           # Otomatik güncelleme için (isteğe bağlı)
+    - cron: "0 0 * * *"
 
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
-    environment: production
     permissions:
       contents: write
       issues: read
@@ -17,6 +18,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
+          token: ${{ secrets.METRICS_TOKEN }}
           
       - name: Fix Docker installation conflicts
         run: |
@@ -33,7 +35,7 @@ jobs:
           base: header, activity, community, repositories, metadata
           base_indepth: true
           config_octicon: true
-          config_timezone: America/Chicago
+          config_timezone: Europe/Moscow
           config_twemoji: true
           
           # Languages plugin
@@ -58,7 +60,7 @@ jobs:
           plugin_leetcode_sections: solved
           plugin_leetcode_user: mekanxsari
           
-          # Auto-commit configuration
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          committer_token: ${{ secrets.METRICS_TOKEN }}
           committer_branch: main
           committer_message: "📈 Update GitHub metrics [skip ci]"
+          filename: github-metrics.svg  # ✅ Dosya adını netleştir
